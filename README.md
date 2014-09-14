@@ -4,7 +4,7 @@ docker-php-5.4.31
 Run the container
 -----------------
 
-    CONTAINER=php5328 && sudo docker run \
+    CONTAINER=php5431 && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 5431:5431
