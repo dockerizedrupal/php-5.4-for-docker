@@ -18,4 +18,4 @@ Build the image
     git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git docker-php
     cd docker-php
     git checkout 5.4.31
-    sudo docker build -t php:5.4.31 .
+    sudo docker build -t simpledrupalcloud/php:5.4.31 .
