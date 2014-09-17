@@ -24,7 +24,7 @@ class phpfarm {
   include packages
 
   exec { 'git clone git://git.code.sf.net/p/phpfarm/code phpfarm':
-    cwd => '/opt',
+    cwd => '/',
     path => ['/usr/bin'],
     require => Class['packages']
   }
@@ -53,17 +53,17 @@ class php_extension_xdebug {
   }
 
   exec { 'phpize-5.4.31 xdebug':
-    command => '/opt/phpfarm/inst/bin/phpize-5.4.31',
+    command => '/phpfarm/inst/bin/phpize-5.4.31',
     cwd => '/tmp/xdebug-2.2.5',
     require => Exec['tar xzf xdebug-2.2.5.tgz']
   }
 
-  exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && ./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.4.31"':
+  exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.4.31"':
     require => Exec['phpize-5.4.31 xdebug']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && make"':
-    require => Exec['/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && ./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.4.31"']
+    require => Exec['/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.4.31"']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && make install"':
@@ -76,37 +76,37 @@ class php {
   include php_supervisor
   include php_extension_xdebug
 
-  file { '/opt/phpfarm/src/custom-options-5.4.31.sh':
+  file { '/phpfarm/src/custom-options-5.4.31.sh':
     ensure => present,
-    source => '/tmp/build/opt/phpfarm/src/custom-options-5.4.31.sh',
+    source => '/tmp/build/phpfarm/src/custom-options-5.4.31.sh',
     mode => 755,
     require => Class['phpfarm']
   }
 
-  exec { '/opt/phpfarm/src/compile.sh 5.4.31':
+  exec { '/phpfarm/src/compile.sh 5.4.31':
     timeout => 0,
-    require => File['/opt/phpfarm/src/custom-options-5.4.31.sh']
+    require => File['/phpfarm/src/custom-options-5.4.31.sh']
   }
 
-  file { '/opt/phpfarm/inst/php-5.4.31/etc/php-fpm.conf':
+  file { '/phpfarm/inst/php-5.4.31/etc/php-fpm.conf':
     ensure => present,
-    source => '/tmp/build/opt/phpfarm/inst/php-5.4.31/etc/php-fpm.conf',
+    source => '/tmp/build/phpfarm/inst/php-5.4.31/etc/php-fpm.conf',
     mode => 644,
-    require => Exec['/opt/phpfarm/src/compile.sh 5.4.31']
+    require => Exec['/phpfarm/src/compile.sh 5.4.31']
   }
 
-  file { '/opt/phpfarm/inst/php-5.4.31/lib/php.ini':
+  file { '/phpfarm/inst/php-5.4.31/lib/php.ini':
     ensure => present,
-    source => '/tmp/build/opt/phpfarm/inst/php-5.4.31/lib/php.ini',
+    source => '/tmp/build/phpfarm/inst/php-5.4.31/lib/php.ini',
     mode => 644,
-    require => Exec['/opt/phpfarm/src/compile.sh 5.4.31']
+    require => Exec['/phpfarm/src/compile.sh 5.4.31']
   }
 
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
     source => '/tmp/build/etc/profile.d/phpfarm.sh',
     mode => 755,
-    require => Exec['/opt/phpfarm/src/compile.sh 5.4.31']
+    require => Exec['/phpfarm/src/compile.sh 5.4.31']
   }
 
   exec { '/bin/bash -l -c "switch-phpfarm 5.4.31"':
