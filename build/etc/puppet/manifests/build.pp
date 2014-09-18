@@ -88,6 +88,11 @@ class php {
     require => File['/phpfarm/src/custom-options-5.4.31.sh']
   }
 
+  exec { 'rm -rf /phpfarm/src/php-5.4.31':
+    path => ['/bin'],
+    require => Exec['/phpfarm/src/compile.sh 5.4.31']
+  }
+
   file { '/phpfarm/inst/php-5.4.31/etc/php-fpm.conf':
     ensure => present,
     source => '/tmp/build/phpfarm/inst/php-5.4.31/etc/php-fpm.conf',
