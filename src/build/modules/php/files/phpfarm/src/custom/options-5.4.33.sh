@@ -1,8 +1,5 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --disable-debug \
-  --enable-apc \
-  --enable-memcached \
-  --enable-xdebug \
   --enable-fpm \
   --enable-gd-native-ttf \
   --enable-exif \
@@ -19,14 +16,11 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-gd \
   --with-jpeg-dir=/usr \
   --with-png-dir=/usr \
-  --with-ttf \
   --with-mhash \
   --with-mcrypt \
   --with-mysqli \
   --with-mysql \
   --with-pdo-mysql \
-  --with-libxml \
-  --with-mbstring \
   --with-iconv \
   --with-pear \
   --with-openssl \
