@@ -36,3 +36,29 @@
 
       Action php /php54
     </IfModule>
+
+## Extensions
+
+### Xdebug
+
+    CONTAINER="php54" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -p 9000:9000 \
+      --link mailcatcher:ssmtp \
+      -v /var/www:/var/www \
+      -e DEBUGGER="Xdebug" \
+      -d \
+      simpledrupalcloud/php:5.4-dev
+
+### Zend Debugger
+
+    CONTAINER="php54" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -p 9000:9000 \
+      --link mailcatcher:ssmtp \
+      -v /var/www:/var/www \
+      -e DEBUGGER="Zend Debugger" \
+      -d \
+      simpledrupalcloud/php:5.4-dev
