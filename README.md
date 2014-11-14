@@ -2,20 +2,26 @@
 
 A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.4.33 that runs PHP in FPM (FastCGI Process Manager) mode.
 
-## PHP 5.4.33
+## PHP 5.4.33 (DEVELOPMENT BRANCH)
 
 ### Run the container
 
 Using the `docker` command:
 
+    CONTAINER="data" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -v /var/www:/var/www \
+      simpledrupalcloud/data:dev
+
     CONTAINER="php54" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
-      -v /var/www:/var/www \
+      --volumes-from data \
       -d \
       simpledrupalcloud/php:5.4-dev
-      
+
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
