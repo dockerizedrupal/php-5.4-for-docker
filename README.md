@@ -1,17 +1,36 @@
 # docker-php-5.4
 
-## Run the container
+A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.4.33 that runs PHP in FPM (FastCGI Process Manager) mode.
 
-    CONTAINER=php54 && sudo docker run \
+## PHP 5.4.33 (STABLE BRANCH)
+
+### Run the container
+
+Using the `docker` command:
+
+    CONTAINER="data" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -v /var/www:/var/www \
+      simpledrupalcloud/data:latest
+
+    CONTAINER="php54" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
-      --link mailcatcher:ssmtp \
-      -v /var/www:/var/www \
+      --volumes-from data \
       -d \
       simpledrupalcloud/php:5.4
 
-## Build the image
+Using the `fig` command
+
+    TMP="$(mktemp -d)" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
+      && cd "${TMP}" \
+      && git checkout 5.4 \
+      && fig up
+
+### Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
@@ -20,7 +39,7 @@
       && sudo docker build -t simpledrupalcloud/php:5.4 . \
       && cd -
 
-## Apache directives
+### Apache directives
 
     <IfModule mod_fastcgi.c>
       AddHandler php .php
@@ -36,3 +55,7 @@
 
       Action php /php54
     </IfModule>
+
+## License
+
+**MIT**
