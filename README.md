@@ -14,7 +14,7 @@ Using the `docker` command:
       -v /httpd/data \
       simpledrupalcloud/data:dev
 
-    CONTAINER="php" && sudo docker run \
+    CONTAINER="php54" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
@@ -44,16 +44,16 @@ Using the `fig` command
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php /httpd/data/php
-      FastCgiExternalServer /httpd/data/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php54 /httpd/php54
+      FastCgiExternalServer /httpd/php54 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
-      <Location /php>
+      <Location /php54>
         Order deny,allow
         Deny from all
         Allow from env=REDIRECT_STATUS
       </Location>
 
-      Action php /php
+      Action php /php54
     </IfModule>
 
 ## License
