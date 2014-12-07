@@ -1,6 +1,6 @@
-php:
+php54:
   image: simpledrupalcloud/php:5.4-dev
-  hostname: php
+  hostname: php54
   ports:
     - "9000:9000"
   volumes_from:
