@@ -2,9 +2,7 @@
 
 A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.4.33 that runs PHP in FPM (FastCGI Process Manager) mode.
 
-## PHP 5.4.33 (STABLE BRANCH)
-
-### Run the container
+## Run the container
 
 Using the `docker` command:
 
@@ -30,7 +28,7 @@ Using the `fig` command
       && git checkout 5.4 \
       && sudo fig up
 
-### Build the image
+## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
@@ -39,21 +37,21 @@ Using the `fig` command
       && sudo docker build -t simpledrupalcloud/php:5.4 . \
       && cd -
 
-### Apache directives
+## Apache directives
 
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php /httpd/data/php
-      FastCgiExternalServer /httpd/data/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php54 /httpd/php54
+      FastCgiExternalServer /httpd/php54 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
-      <Location /php>
+      <Location /php54>
         Order deny,allow
         Deny from all
         Allow from env=REDIRECT_STATUS
       </Location>
 
-      Action php /php
+      Action php /php54
     </IfModule>
 
 ## License
