@@ -3,6 +3,10 @@ class php {
   require php::phpfarm
   require php::supervisor
 
+  exec { 'mkdir -p /phpfarm/inst/php-5.4.33/lib/php/extensions/no-debug-non-zts-20100525':
+    path => ['/bin']
+  }
+
   file { '/tmp/php-5.4.33.tar.gz':
     ensure => present,
     source => 'puppet:///modules/php/tmp/php-5.4.33.tar.gz'
