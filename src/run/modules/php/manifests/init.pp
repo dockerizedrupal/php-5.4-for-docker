@@ -15,6 +15,8 @@ class php {
     include php::redis
   }
 
+  include php::drush
+
   file { '/phpfarm/inst/php-5.4.33/lib/php.ini':
     ensure => present,
     content => template('php/php.ini.erb')
