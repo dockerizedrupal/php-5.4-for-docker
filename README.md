@@ -6,7 +6,7 @@ A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.4
 
 Using the `docker` command:
 
-    CONTAINER="php54" && sudo docker run \
+    CONTAINER="php" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
@@ -35,16 +35,16 @@ Using the `fig` command
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php54 /httpd/php54
-      FastCgiExternalServer /httpd/php54 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php /httpd/php
+      FastCgiExternalServer /httpd/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
-      <Location /php54>
+      <Location /php>
         Order deny,allow
         Deny from all
         Allow from env=REDIRECT_STATUS
       </Location>
 
-      Action php /php54
+      Action php /php
     </IfModule>
 
 ## License
