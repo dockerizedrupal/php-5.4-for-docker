@@ -6,17 +6,10 @@ A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.4
 
 Using the `docker` command:
 
-    CONTAINER="httpddata" && sudo docker run \
-      --name "${CONTAINER}" \
-      -h "${CONTAINER}" \
-      -v /httpd/data \
-      simpledrupalcloud/data:dev
-
     CONTAINER="php54" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
-      --volumes-from httpddata \
       -d \
       simpledrupalcloud/php:5.4-dev
 
