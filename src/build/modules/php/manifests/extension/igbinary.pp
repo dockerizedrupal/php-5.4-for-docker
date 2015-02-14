@@ -11,7 +11,7 @@ class php::extension::igbinary {
   }
 
   bash_exec { 'cd /tmp/igbinary-1.2.1 && phpize-5.4.33':
-    require => Bash_exec['tar xzf igbinary-1.2.1.tgz']
+    require => Bash_exec['cd /tmp && tar xzf igbinary-1.2.1.tgz']
   }
 
   bash_exec { 'cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.4.33 --enable-igbinary':
