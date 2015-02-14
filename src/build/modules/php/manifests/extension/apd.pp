@@ -16,7 +16,7 @@ class php::extension::apd {
 
   bash_exec { 'cd /tmp/pecl-apd-master && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.4.33':
     timeout => 0,
-    require => Bash_exec['d /tmp/pecl-apd-master && phpize-5.4.33']
+    require => Bash_exec['cd /tmp/pecl-apd-master && phpize-5.4.33']
   }
 
   bash_exec { 'cd /tmp/pecl-apd-master && make':
