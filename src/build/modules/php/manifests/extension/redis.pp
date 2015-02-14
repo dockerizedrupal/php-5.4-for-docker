@@ -11,13 +11,13 @@ class php::extension::redis {
     require => File['/tmp/redis-2.2.5.tgz']
   }
 
-  bash_exec { 'cd /tmp/redis-2.2.5 && phpize-5.4.33 redis':
+  bash_exec { 'cd /tmp/redis-2.2.5 && phpize-5.4.33':
     require => Bash_exec['cd /tmp && tar xzf redis-2.2.5.tgz']
   }
 
   bash_exec { 'cd /tmp/redis-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.4.33 --enable-redis-igbinary':
     timeout => 0,
-    require => Bash_exec['cd /tmp/redis-2.2.5 && phpize-5.4.33 redis']
+    require => Bash_exec['cd /tmp/redis-2.2.5 && phpize-5.4.33']
   }
 
   bash_exec { 'cd /tmp/redis-2.2.5 && make':
