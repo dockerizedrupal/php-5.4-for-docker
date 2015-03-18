@@ -26,10 +26,4 @@ class php::phpcs {
   bash_exec { 'mv /tmp/PHP_CodeSniffer-2.3.0.tgz /usr/local/src/PHP_CodeSniffer_2':
     require => Bash_exec['cd /tmp && tar xzf PHP_CodeSniffer-2.3.0.tgz']
   }
-
-  file { '/etc/profile.d/phpcs.sh':
-    ensure => present,
-    source => 'puppet:///modules/php/etc/profile.d/phpcs.sh',
-    mode => 755
-  }
 }
