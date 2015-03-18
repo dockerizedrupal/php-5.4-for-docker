@@ -1,6 +1,4 @@
 class php::coder {
-  require php::phpcs
-
   if $drupal_version == '7' {
     file { '/root/.drush/coder':
       ensure => link,
