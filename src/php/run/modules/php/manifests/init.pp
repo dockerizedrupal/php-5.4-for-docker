@@ -73,7 +73,7 @@ class php {
   include php::drush
   include php::coder
 
-  file { '/phpfarm/inst/php-5.4.33/lib/php.ini':
+  file { '/usr/local/src/phpfarm/inst/php-5.4.33/lib/php.ini':
     ensure => present,
     content => template('php/php.ini.erb')
   }
