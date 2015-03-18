@@ -12,7 +12,7 @@ class php::phpfarm {
     require => Bash_exec['cd /tmp && unzip phpfarm-master.zip']
   }
 
-  file { '/phpfarm/custom':
+  file { '/usr/local/src/phpfarm/custom':
     ensure => directory,
     require => Bash_exec['mv /tmp/phpfarm-master /usr/local/src/phpfarm']
   }
