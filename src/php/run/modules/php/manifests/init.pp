@@ -71,6 +71,7 @@ class php {
   }
 
   include php::drush
+  include php::coder
 
   file { '/phpfarm/inst/php-5.4.33/lib/php.ini':
     ensure => present,
