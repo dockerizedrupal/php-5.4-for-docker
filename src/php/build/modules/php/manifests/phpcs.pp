@@ -21,7 +21,7 @@ class php::phpcs {
     require => File['/tmp/PHP_CodeSniffer-2.3.0.tgz']
   }
 
-  bash_exec { 'mv /tmp/PHP_CodeSniffer-2.3.0.tgz /usr/local/src/PHP_CodeSniffer_2':
+  bash_exec { 'mv /tmp/PHP_CodeSniffer-2.3.0 /usr/local/src/PHP_CodeSniffer_2':
     require => Bash_exec['cd /tmp && tar xzf PHP_CodeSniffer-2.3.0.tgz']
   }
 }
