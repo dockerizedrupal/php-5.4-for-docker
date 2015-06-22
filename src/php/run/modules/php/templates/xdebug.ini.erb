@@ -4,7 +4,7 @@ zend_extension = /usr/local/src/phpfarm/inst/current/lib/php/extensions/no-debug
 xdebug.remote_enable = On
 xdebug.remote_port = <%= @xdebug_remote_port %>
 xdebug.remote_host = <%= @xdebug_remote_host %>
-xdebug.remote_connect_back = %= @xdebug_remote_connect_back %>
+xdebug.remote_connect_back = <%= @xdebug_remote_connect_back %>
 xdebug.remote_handler = "dbgp"
 xdebug.remote_mode = req
 xdebug.idekey = "<%= @xdebug_idekey %>"
