@@ -13,8 +13,4 @@ class build::phpcs::phpcompatibility {
   bash_exec { 'cp -r /tmp/PHPCompatibility-master /usr/local/src/PHP_CodeSniffer_1/CodeSniffer/Standards/PHPCompatibility':
     require => Bash_exec['cd /tmp && unzip PHPCompatibility-master.zip']
   }
-
-  bash_exec { 'cp -r /tmp/PHPCompatibility-master /usr/local/src/PHP_CodeSniffer_2/CodeSniffer/Standards/PHPCompatibility':
-    require => Bash_exec['cd /tmp && unzip PHPCompatibility-master.zip']
-  }
 }
