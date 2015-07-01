@@ -133,8 +133,8 @@ Tests are implemented in [Bats: Bash Automated Testing System](https://github.co
     ok 53 php: ini: post_max_size
     ok 54 php: ini: realpath_cache_size
     ok 55 php: ini: realpath_cache_ttl
-    ok 56 php: ini: redis
-    ok 57 php: ini: redis
+    ok 56 php: ini: redis: off
+    ok 57 php: ini: redis: on
     ok 58 php: ini: short_open_tag: off
     ok 59 php: ini: short_open_tag: on
     ok 60 php: ini: timezone
