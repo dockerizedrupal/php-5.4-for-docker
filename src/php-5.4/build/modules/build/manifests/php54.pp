@@ -1,6 +1,6 @@
-class build::php {
-  require build::php::packages
-  require build::php::supervisor
+class build::php54 {
+  require build::php54::packages
+  require build::php54::supervisor
   require build::phpfarm
   require build::freetds
 
