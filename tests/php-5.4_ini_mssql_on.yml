@@ -1,0 +1,3 @@
+php-5.4:
+  image: dockerizedrupal/php-5.4:1.0.0
+  hostname: php-5.4
