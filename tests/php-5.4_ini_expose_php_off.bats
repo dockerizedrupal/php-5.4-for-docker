@@ -17,7 +17,7 @@ teardown() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" rm --force
 }
 
-@test "php-5.4: ini: expose_php-5.4: off" {
+@test "php-5.4: ini: expose_php: off" {
   run docker exec "$(container)" /bin/su - root -lc "php -i | grep 'expose_php'"
 
   [ "${status}" -eq 0 ]
