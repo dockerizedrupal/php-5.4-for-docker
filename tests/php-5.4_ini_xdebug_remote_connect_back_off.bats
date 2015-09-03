@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: xdebug.remote_connect_back: off" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.remote_connect_back'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.remote_connect_back'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"Off"* ]]

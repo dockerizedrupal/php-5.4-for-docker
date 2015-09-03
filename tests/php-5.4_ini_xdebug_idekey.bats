@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: xdebug.idekey" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.idekey'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.idekey'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"MY_IDEKEY"* ]]

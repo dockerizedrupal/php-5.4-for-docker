@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: error_reporting" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/error_reporting.ini | grep 'error_reporting'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/error_reporting.ini | grep 'error_reporting'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"E_ALL & ~E_NOTICE & ~E_STRICT"* ]]

@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: short_open_tag: off" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/short_open_tag.ini | grep 'short_open_tag'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/short_open_tag.ini | grep 'short_open_tag'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"Off"* ]]

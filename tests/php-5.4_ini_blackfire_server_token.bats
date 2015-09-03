@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: blackfire.server_token" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/blackfire.ini | grep 'blackfire.server_token'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/blackfire.ini | grep 'blackfire.server_token'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"91bde3fa9350479ba84f90acab46b680142c0f6fe8154a649e82d0d2ddadfa93"* ]]

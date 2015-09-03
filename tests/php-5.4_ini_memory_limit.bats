@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: memory_limit" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/memory_limit.ini | grep 'memory_limit'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/memory_limit.ini | grep 'memory_limit'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"1024M"* ]]

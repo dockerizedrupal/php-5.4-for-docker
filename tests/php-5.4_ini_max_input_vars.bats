@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: max_input_vars" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/max_input_vars.ini | grep 'max_input_vars'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/max_input_vars.ini | grep 'max_input_vars'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"8192"* ]]

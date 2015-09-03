@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: opcache.memory_consumption" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/opcache.ini | grep 'opcache.memory_consumption'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/opcache.ini | grep 'opcache.memory_consumption'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"4096"* ]]

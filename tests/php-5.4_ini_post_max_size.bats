@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: post_max_size" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/post_max_size.ini | grep 'post_max_size'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/post_max_size.ini | grep 'post_max_size'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"1024M"* ]]

@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: realpath_cache_ttl" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/realpath_cache_ttl.ini | grep 'realpath_cache_ttl'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/realpath_cache_ttl.ini | grep 'realpath_cache_ttl'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"7200"* ]]

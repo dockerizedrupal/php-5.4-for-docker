@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: xdebug.remote_host" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.remote_host'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.remote_host'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"192.168.1.1"* ]]

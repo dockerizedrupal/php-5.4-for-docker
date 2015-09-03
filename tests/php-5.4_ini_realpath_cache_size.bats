@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: realpath_cache_size" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/realpath_cache_size.ini | grep 'realpath_cache_size'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/realpath_cache_size.ini | grep 'realpath_cache_size'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"512k"* ]]

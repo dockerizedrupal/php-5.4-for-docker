@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: timezone" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/timezone.ini | grep 'timezone'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/timezone.ini | grep 'timezone'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"Europe/Tallinn"* ]]

@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: ini: display_startup_errors: on" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/conf.d/display_startup_errors.ini | grep 'display_startup_errors'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/display_startup_errors.ini | grep 'display_startup_errors'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"On"* ]]

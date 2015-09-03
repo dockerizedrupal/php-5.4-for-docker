@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.4: fpm: pm.process_idle_timeout" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/php-5.4farm/inst/current/etc/pool.d/www.conf | grep 'pm.process_idle_timeout'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/pool.d/www.conf | grep 'pm.process_idle_timeout'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"20s"* ]]
