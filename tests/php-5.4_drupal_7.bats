@@ -3,15 +3,15 @@
 DOCKER_COMPOSE_FILE="${BATS_TEST_DIRNAME}/php-5.4_drupal_7.yml"
 
 container() {
-  echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps php-5.4 | grep php-5.4 | awk '{ print $1 }')"
+  echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps php | grep php | awk '{ print $1 }')"
 }
 
 setup_drupal() {
   docker exec "$(container)" /bin/su - root -lc "wget http://ftp.drupal.org/files/projects/drupal-7.39.tar.gz -O /tmp/drupal-7.39.tar.gz"
   docker exec "$(container)" /bin/su - root -lc "tar xzf /tmp/drupal-7.39.tar.gz -C /tmp"
-  docker exec "$(container)" /bin/su - root -lc "rsync -avz /tmp/drupal-7.39/ /apache-2.4/data"
-  docker exec "$(container)" /bin/su - root -lc "drush -r /apache-2.4/data -y site-install --db-url=mysqli://root:root@localhost/drupal --account-name=admin --account-pass=admin"
-  docker exec "$(container)" /bin/su - root -lc "chown container.container /apache-2.4/data"
+  docker exec "$(container)" /bin/su - root -lc "rsync -avz /tmp/drupal-7.39/ /apache/data"
+  docker exec "$(container)" /bin/su - root -lc "drush -r /apache/data -y site-install --db-url=mysqli://root:root@localhost/drupal --account-name=admin --account-pass=admin"
+  docker exec "$(container)" /bin/su - root -lc "chown container.container /apache/data"
 }
 
 setup() {
@@ -28,7 +28,7 @@ teardown() {
 }
 
 @test "php-5.4: drupal 7" {
-  run docker exec "$(container)" /bin/su - root -lc "drush -r /apache-2.4/data/ status | grep 'Drupal bootstrap'"
+  run docker exec "$(container)" /bin/su - root -lc "drush -r /apache/data/ status | grep 'Drupal bootstrap'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"Successful"* ]]

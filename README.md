@@ -1,4 +1,4 @@
-# docker-php
+# docker-php-5.4
 
 A [Docker](https://docker.com/) image for [PHP](http://php.net/) version 5.4 that runs PHP in FPM (FastCGI Process Manager) mode.
 
@@ -8,12 +8,12 @@ Configuration, PHP extensions and other tools built into the image are primarily
 
 Using the `docker` command:
 
-    CONTAINER="php-5.4" && sudo docker run \
+    CONTAINER="php" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
       -e SERVER_NAME="localhost" \
-      -e DRUPAL_VERSION="8" \
+      -e DRUPAL_VERSION="7" \
       -e PHP_INI_REALPATH_CACHE_SIZE="256k" \
       -e PHP_INI_REALPATH_CACHE_TTL="3600" \
       -e PHP_INI_POST_MAX_SIZE="512M" \
@@ -52,14 +52,14 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/php-5.4:1.0.2
+      dockerizedrupal/php-5.4:1.0.3
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.4.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
+      && git checkout 1.0.3 \
       && sudo docker-compose up
 
 ## Build the image
@@ -67,8 +67,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.4.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
-      && sudo docker build -t dockerizedrupal/php-5.4:1.0.2 . \
+      && git checkout 1.0.3 \
+      && sudo docker build -t dockerizedrupal/php-5.4:1.0.3 . \
       && cd -
 
 ## Tests
