@@ -29,6 +29,6 @@ php-5.4:
   volumes_from:
     - apache-2.4-data
   links:
-    - mysqld
+    - mysql
   environment:
     - DRUPAL_VERSION=7
