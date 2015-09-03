@@ -1,6 +1,6 @@
 php-5.4:
-  image: dockerizedrupal/php-5.4:1.0.1
+  image: dockerizedrupal/php-5.4:1.0.2
   hostname: php-5.4
   environment:
-    - php-5.4:php_INI_XDEBUG=On
-    - php-5.4:php_INI_XDEBUG_REMOTE_HOST=192.168.1.1
+    - PHP_INI_XDEBUG=On
+    - PHP_INI_XDEBUG_REMOTE_HOST=192.168.1.1

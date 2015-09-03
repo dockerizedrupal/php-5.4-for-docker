@@ -1,5 +1,5 @@
 php-5.4:
-  image: dockerizedrupal/php-5.4:1.0.1
+  image: dockerizedrupal/php-5.4:1.0.2
   hostname: php-5.4
   environment:
-    - php-5.4:php_INI_REALPATH_CACHE_TTL=7200
+    - PHP_INI_REALPATH_CACHE_TTL=7200
