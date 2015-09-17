@@ -60,14 +60,14 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/php-5.4:1.0.11
+      dockerizedrupal/php-5.4:1.0.12
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.4.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.11 \
+      && git checkout 1.0.12 \
       && sudo docker-compose up
 
 ## Build the image
@@ -75,8 +75,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.4.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.11 \
-      && sudo docker build -t dockerizedrupal/php-5.4:1.0.11 . \
+      && git checkout 1.0.12 \
+      && sudo docker build -t dockerizedrupal/php-5.4:1.0.12 . \
       && cd -
 
 ## Tests
