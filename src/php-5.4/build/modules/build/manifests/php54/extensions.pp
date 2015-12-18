@@ -1,11 +1,11 @@
 class build::php54::extensions {
   require build::php54
 
-  include build::php54::extension::xdebug
-  include build::php54::extension::memcached
-  include build::php54::extension::redis
-  include build::php54::extension::blackfire
-  include build::php54::extension::apcu
-  include build::php54::extension::zendopcache
-  include build::php54::extension::apd
+  include build::php54::extensions::xdebug
+  include build::php54::extensions::memcached
+  include build::php54::extensions::redis
+  include build::php54::extensions::blackfire
+  include build::php54::extensions::apcu
+  include build::php54::extensions::zendopcache
+  include build::php54::extensions::apd
 }

@@ -1,4 +1,4 @@
-class build::php54::extension::apd {
+class build::php54::extensions::apd {
   require build::php54
 
   file { '/tmp/pecl-apd-master.zip':
