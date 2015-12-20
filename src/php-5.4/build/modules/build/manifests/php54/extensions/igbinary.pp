@@ -10,18 +10,18 @@ class build::php54::extensions::igbinary {
     require => File['/tmp/igbinary-1.2.1.tgz']
   }
 
-  bash_exec { 'cd /tmp/igbinary-1.2.1 && phpize-5.4.42':
+  bash_exec { 'cd /tmp/igbinary-1.2.1 && phpize-5.4.45':
     require => Bash_exec['cd /tmp && tar xzf igbinary-1.2.1.tgz']
   }
 
-  bash_exec { 'cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.4.42 --enable-igbinary':
+  bash_exec { 'cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.4.45 --enable-igbinary':
     timeout => 0,
-    require => Bash_exec['cd /tmp/igbinary-1.2.1 && phpize-5.4.42']
+    require => Bash_exec['cd /tmp/igbinary-1.2.1 && phpize-5.4.45']
   }
 
   bash_exec { 'cd /tmp/igbinary-1.2.1 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.4.42 --enable-igbinary']
+    require => Bash_exec['cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.4.45 --enable-igbinary']
   }
 
   bash_exec { 'cd /tmp/igbinary-1.2.1 && make install':
